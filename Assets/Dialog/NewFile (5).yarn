@@ -1,0 +1,63 @@
+title: Start
+tags: 
+colorID: 0
+position: 576,214
+---
+Cat: Meow. I'm a cat.
+Not Cat: Woof.
+Cat: ...what the fuck are you?
+[[Eat him |Test.eat]]
+[[Pet him |Test.pet]]
+===
+title: Test.eat
+tags: 
+colorID: 0
+position: 696,-6
+---
+<<set $cannibal to 1>>
+Cat: Ah, shit. Well. I guess it's time to move on.
+[[Node]]
+===
+title: Test.pet
+tags: 
+colorID: 0
+position: 913,-8
+---
+<<set $friend to 1>>
+Cat: Huh. I guess you're okay.
+Not Cat: Woofow.
+[[Node]]
+===
+title: Node
+tags: 
+colorID: 0
+position: 808,-245
+---
+Cat: Hmm. What to do today...
+
+<<if $cannibal is 1>>
+Cat: I... kinda thirst for more blood.
+[[Test.kill]]
+<<endif>>
+
+<<if $friend is 1>>
+Cat: Do you want to like... eat other animals?
+Not Cat: Woof?
+[[Test.love]]
+<<endif>>
+===
+title: Test.kill
+tags: 
+colorID: 0
+position: 890,-484
+---
+Cat: Fuck it. Let's eat more animals!
+===
+title: Test.love
+tags: 
+colorID: 0
+position: 1155,-471
+---
+Cat: Well, fine. I guess we can gather more friends.
+Not Cat: Woof!
+===
