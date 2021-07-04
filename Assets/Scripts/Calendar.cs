@@ -7,31 +7,32 @@ using TMPro;
 public class Calendar : MonoBehaviour
 {
 
-    private const int TIMESCALE = 60;
 
     [SerializeField] private TextMeshProUGUI clockText;
     [SerializeField] private TextMeshProUGUI dayText;
-    //[SerializeField] TextMeshProUGUI weekText;
+    [SerializeField] private TextMeshProUGUI weekText;
     [SerializeField] private TextMeshProUGUI monthText;
     [SerializeField] private TextMeshProUGUI seasonText;
 
     
 
-    private static double minute, hour, day, month, season;
+    private static int minute, hour, day, week, month;
 
     void Start()
     {
         minute = 0;
         hour = 6;
         day = 1;
-        //week = 1;
+        week = 1;
         month = 1;
-        season = 1;
         
-        clockText = gameObject.AddComponent<TextMeshProUGUI>();
-        dayText = gameObject.AddComponent<TextMeshProUGUI>();
-        monthText = gameObject.AddComponent<TextMeshProUGUI>();
-        seasonText = gameObject.AddComponent<TextMeshProUGUI>();
+        clockText = transform.Find("clockText").GetComponent<TextMeshProUGUI>();
+        dayText = transform.Find("dayText").GetComponent<TextMeshProUGUI>();
+        weekText = transform.Find("weekText").GetComponent<TextMeshProUGUI>();
+        monthText = transform.Find("monthText").GetComponent<TextMeshProUGUI>();
+        seasonText = transform.Find("seasonText").GetComponent<TextMeshProUGUI>();
+
+        CalculateSeason();
     }
 
     void Update()
@@ -39,16 +40,15 @@ public class Calendar : MonoBehaviour
         CalculateTime();
         clockText.SetText(hour + ":" + minute); 
         dayText.SetText("Day: " + day);
-        //weekText.SetText("Week: " + week);
+        weekText.SetText("Week: " + week);
         monthText.SetText("Month: " + month);
-        seasonText.SetText("Season: " + season);
     }
 
     void CalculateSeason()
     {
         if(month == 12 || month == 1 || month == 2)
         {
-            seasonText.text = "Winter";
+            seasonText.SetText("Winter");
         }
          if(month == 3 || month == 4 || month == 5)
         {
@@ -64,6 +64,31 @@ public class Calendar : MonoBehaviour
         }
     }
 
+    void CalculateWeek()
+    {
+        if (day < 7)
+        {
+            week = 1;
+        }
+        if (day >= 7 && day < 14)
+        {
+            week = 2;
+        }
+         if (day >= 14 && day < 21)
+        {
+            week = 3;
+        }
+         if (day >= 21 && day < 28)
+        {
+            week = 4;
+        }
+        if (day >= 28)
+        {
+            week = 5;
+        }
+    }
+
+
     void CalculateMonth()
     {
         if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
@@ -72,6 +97,7 @@ public class Calendar : MonoBehaviour
             {
                 month++;
                 day = 1;
+                week = 1;
                 CalculateSeason();
             }
         }
@@ -82,6 +108,7 @@ public class Calendar : MonoBehaviour
             {
                 month++;
                 day = 1;
+                week = 1;
                 CalculateSeason();
             }
         }
@@ -91,6 +118,7 @@ public class Calendar : MonoBehaviour
             {
                 month++;
                 day = 1;
+                week = 1;
                 CalculateSeason();
             }    
         }
@@ -98,7 +126,7 @@ public class Calendar : MonoBehaviour
 
     void CalculateTime()
     {
-        minute += Time.deltaTime * TIMESCALE;
+        minute += 30;
 
         if (minute >= 60)
         {
@@ -110,7 +138,11 @@ public class Calendar : MonoBehaviour
             day++;
             hour = 0;
         }
-        else if (day >= 28)
+        else if (day >= 7)
+        {
+            CalculateWeek();
+        }
+        if (day >= 28)
         {
             CalculateMonth();
         }

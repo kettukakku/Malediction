@@ -1013,6 +1013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clockText: {fileID: 1079533303}
   dayText: {fileID: 1499486141}
+  weekText: {fileID: 1923933408}
   monthText: {fileID: 1963671981}
   seasonText: {fileID: 1420563543}
 --- !u!114 &1274280996
