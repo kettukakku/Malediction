@@ -9,30 +9,29 @@ public class Calendar : MonoBehaviour
 
     private const int TIMESCALE = 60;
 
-    [SerializeField] TextMeshProUGUI clockText;
-    [SerializeField] TextMeshProUGUI dayText;
+    [SerializeField] private TextMeshProUGUI clockText;
+    [SerializeField] private TextMeshProUGUI dayText;
     //[SerializeField] TextMeshProUGUI weekText;
-    [SerializeField] TextMeshProUGUI monthText;
-    [SerializeField] TextMeshProUGUI seasonText;
+    [SerializeField] private TextMeshProUGUI monthText;
+    [SerializeField] private TextMeshProUGUI seasonText;
 
-    private static double minute, hour, day, week, month, season;
+    
+
+    private static double minute, hour, day, month, season;
 
     void Start()
     {
-        clockText = GetComponentInChildren<TextMeshProUGUI>();
-        dayText = GetComponentInChildren<TextMeshProUGUI>();
-        //weekText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
-        monthText = GetComponentInChildren<TextMeshProUGUI>();
-        seasonText = GetComponentInChildren<TextMeshProUGUI>();
-        
         minute = 0;
         hour = 6;
         day = 1;
         //week = 1;
         month = 1;
         season = 1;
-
         
+        clockText = gameObject.AddComponent<TextMeshProUGUI>();
+        dayText = gameObject.AddComponent<TextMeshProUGUI>();
+        monthText = gameObject.AddComponent<TextMeshProUGUI>();
+        seasonText = gameObject.AddComponent<TextMeshProUGUI>();
     }
 
     void Update()
