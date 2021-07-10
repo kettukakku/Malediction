@@ -1,0 +1,38 @@
+fileFormatVersion: 2
+guid: 6ed118915ab714477a922fcd1558c6eb
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: en-US
+  stringIDs:
+  - Mal-Opening-Start-0
+  - Mal-Opening-Start-1
+  - Mal-Opening-Start-2
+  - Mal-Opening-Start-3
+  - Mal-Opening-Start-4
+  - Mal-Opening-Start-5
+  - Mal-Opening-Start-6
+  - Mal-Opening-Start-7
+  - Mal-Opening-Start-8
+  - Mal-Opening-Start-9
+  - Mal-Opening-Start-10
+  - Mal-Opening-Start-11
+  - Mal-Opening-Start-12
+  - Mal-Opening-Docking-13
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 'Error on line 53 at position 1:
+
+    mismatched input
+    ''==='' expecting COMMAND_START
+
+    ===
+
+    ^^^'
+  baseLanguage: {fileID: 7128917941130120860, guid: 6ed118915ab714477a922fcd1558c6eb, type: 3}
+  localizations: []

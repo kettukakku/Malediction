@@ -1,0 +1,62 @@
+title: Start
+tags: 
+colorID: 0
+position: 551,111
+---
+<<wait 1>>
+<<playmusic Song1>>
+<<playambience Waves>>
+
+<<setnvl true>>
+When such simple circumstances can strip one of everything they know, what is the lesson to be learned?
+
+Saying "I shouldn't have been there" or "I shouldn't have been born in a war-torn land" mean little. It wouldn't change anything at this point.
+
+-> Open your eyes.
+
+<<playvfx Wake>>
+
+Perhaps it was a mistake to anticipate golden halls and flocks of nobles donning foppish attire. But... Where am I?
+
+<<setnvl false>>
+
+<<playcomicpanel Ocean>>
+<<playcomicpanel Shore>>
+
+Stranger: Hey!
+
+<<playsfx Smack>>
+<<playvfx ScreenShake>>
+
+Stranger: Get back to the deck. We'll have some work for you soon enough.
+
+<<setsprite pirate>>
+Stranger: Yeesh...
+Stranger: You've got that sick look about you... Get a drink from the rain buckets.
+
+-> Comply.
+    <<playsfx Walk>>
+-> Hurl.
+    <<playsfx Gag>>
+    <<playvfx ScreenShake>>
+    Stranger: Ugh! Someone grab a bucket!
+    <<playsfx Splash>>
+    <<playvfx Rain>>
+
+<<playcomicpanel Bucket>>
+
+<<setnvl true>>
+Why does it feel like ages since I looked at myself?
+I barely recognize my own face.
+
+<<if $character_creation_finished is true>>
+<<endif>>
+[[Docking]]
+===
+title: Docking
+tags: 
+colorID: 0
+position: 671,-109
+---
+Test.
+===

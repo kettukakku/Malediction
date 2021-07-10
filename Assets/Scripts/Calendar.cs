@@ -1,21 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Calendar : MonoBehaviour
 {
-
-
-    [SerializeField] private TextMeshProUGUI clockText;
-    [SerializeField] private TextMeshProUGUI dayText;
-    [SerializeField] private TextMeshProUGUI weekText;
-    [SerializeField] private TextMeshProUGUI monthText;
-    [SerializeField] private TextMeshProUGUI seasonText;
-
-    
-
+    /// time variables
     private static int minute, hour, day, week, month;
+
+     /// handles the day slot on the calendar and highlights which one is active.
+    #region 
+    public class Day
+    {
+        public int dayNum;
+        public Color dayColor;
+        public GameObject obj;
+
+        /// Constructor
+        public Day(int dayNum, Color dayColor, GameObject obj)
+        {
+            this.dayNum = dayNum;
+            this.dayColor = dayColor;
+            this.obj = obj;
+            UpdateColor(dayColor);
+            UpdateDay(dayNum);
+        }
+
+        /// Highlights the active day
+        public void UpdateColor(Color newColor)
+        {
+            obj.GetComponent<Image>().color = newColor;
+            dayColor = newColor;
+        }
+
+        public void UpdateDay(int newDayNum)
+        {
+            this.dayNum = newDayNum;
+            if(dayColor == Color.white || dayColor == Color.red)
+            {
+                obj.GetComponentInChildren<TextMeshProUGUI>().text = (dayNum + 1).ToString();
+            }
+            else
+            {
+                obj.GetComponentInChildren<TextMeshProUGUI>().text = "";
+            }
+        }
+    }
+    #endregion
+
+    /// List of all days in a month.
+    private List<Day> days = new List<Day>();
+
+    /// Holds the week containers.
+    public Transform[] weeks;
+
+    /// Text that's printed on the screen.
+    public TextMeshProUGUI clockText;
+    public TextMeshProUGUI dayText;
+    public TextMeshProUGUI weekText;
+    public TextMeshProUGUI monthText;
+    public TextMeshProUGUI seasonText; 
 
     void Start()
     {
@@ -42,6 +87,53 @@ public class Calendar : MonoBehaviour
         weekText.SetText("Week: " + week);
         monthText.SetText("Month: " + month);
     }
+    /*
+    void UpdateMonth(int month)
+    {
+        
+        int startDay = GetMonthStartDay(month);
+        int endDay = GetTotalNumberOfDays(month);
+
+        /// Creates days in month
+        if (days.Count == 0)
+        {
+            for (int w = 0; w < 6; w++)
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    Day newDay;
+                    int currDay = (w * 7) + i;
+                    if (currDay < startDay || currDay - startDay >= endDay)
+                    {
+                        newDay = new Day(currDay - startDay, Color.grey,weeks[w].GetChild(i).gameObject);
+                    }
+                    else{
+                        newDay = new Day(currDay - startDay, Color.white,weeks[w].GetChild(i).gameObject);
+                    }
+                    days.Add(newDay);
+                }
+            }
+        }
+
+        /// Loops through existing days
+        else
+        {
+            for (int i = 0; i < 42; i++)
+            {
+                if (i < startDay || i - startDay >= endDay)
+                {
+                    days[i].UpdateColor(Color.grey);
+                }
+                else
+                {
+                    days[i].UpdateColor(Color.white);
+                }
+                days[i].UpdateDay(i - startDay);
+            }
+        }
+
+        if
+    }*/
 
     void CalculateSeason()
     {

@@ -353,15 +353,16 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/VSSettingsProvider.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/YarnSpinner.Unity.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/YarnSpinner.Unity.ref.dll"
+"Assets/Scripts/Ambience.cs"
 "Assets/Scripts/Calendar.cs"
-"Assets/Scripts/CharacterStats.cs"
-"Assets/Scripts/Inventory.cs"
-"Assets/Scripts/InventorySlot.cs"
-"Assets/Scripts/InventoryUI.cs"
-"Assets/Scripts/Item.cs"
-"Assets/Scripts/ItemPickup.cs"
-"Assets/Scripts/Stat.cs"
+"Assets/Scripts/CharacterManager.cs"
+"Assets/Scripts/LevelLoader.cs"
+"Assets/Scripts/Music.cs"
+"Assets/Scripts/SFX.cs"
+"Assets/Scripts/SoundManager.cs"
+"Assets/Scripts/SpriteManager.cs"
 "Assets/Scripts/TextBoxManager.cs"
+"Assets/Scripts/WeatherManager.cs"
 -langversion:8.0
 
 /deterministic
